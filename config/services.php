@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'advance_auto' => [
+        'url' => env('ADVANCE_AUTO_URL'),
+        'token' => env('ADVANCE_AUTO_SYNC_TOKEN'),
+    ],
+
 ];

@@ -1,6 +1,6 @@
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Armour home">
+      <a class="brand" href="{{ route('home') }}" aria-label="Armour home">
         <img src="{{ asset('assets/armour-logo.png') }}" alt="Armour">
       </a>
 
@@ -10,12 +10,12 @@
       </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="#packages">Packages</a>
-        <a href="#products">Products</a>
-        <a href="#branches">Branches</a>
-        <a href="#stores">Online stores</a>
+        <a href="{{ route('packages.index') }}">Packages</a>
+        <a href="{{ route('products.index') }}">Products</a>
+        <a href="{{ route('home') }}#branches">Branches</a>
+        <a href="{{ route('home') }}#stores">Online stores</a>
       </nav>
 
-      <a class="button button-small header-cta" href="#branches">Find a branch</a>
+      <a class="button button-small header-cta" href="{{ route('home') }}#branches">Find a branch</a>
     </div>
   </header>

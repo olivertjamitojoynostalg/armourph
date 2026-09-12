@@ -2,14 +2,12 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "armour/website",
     "type": "project",
-    "description": "Armour public website, served by Laravel with static Blade content.",
-    "keywords": [
-        "laravel",
-        "framework"
-    ],
+    "description": "Armour website and maintenance area powered by Laravel and SQLite.",
+    "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "filament/filament": "^5.0",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0"
     },
@@ -39,7 +37,10 @@
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php artisan key:generate --skip-if-set"
+            "@php artisan key:generate --skip-if-set",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --seed --no-interaction",
+            "@php artisan storage:link --no-interaction"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -51,7 +52,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

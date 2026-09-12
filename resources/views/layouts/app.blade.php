@@ -20,8 +20,9 @@
   </main>
 
 @include('partials.footer')
+@include('partials.inquiry-assistant')
 
   <div class="toast" role="status" aria-live="polite"></div>
-  <script src="{{ asset('script.js') }}"></script>
+  <script src="{{ asset('script.js') }}?v={{ filemtime(public_path('script.js')) }}"></script>
 </body>
 </html>
