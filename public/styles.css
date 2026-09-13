@@ -334,6 +334,9 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
   .branch-layout { grid-template-columns: 1fr; }
   .branch-map, .branch-map iframe, .map-placeholder { min-height: 390px; }
   .hero-slide-content { padding-inline: 78px; }
+  .hero-carousel { height: auto; min-height: 0; aspect-ratio: 1451 / 1084; }
+  #main > .hero-carousel:first-child { height: auto; min-height: 0; margin-top: 92px; }
+  .hero-slide img { object-fit: contain; }
   .product-explorer-card { flex-basis: calc((100% - 36px) / 3); }
 }
 
@@ -394,8 +397,8 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
   .inquiry-launcher { width: 54px; padding: 0; justify-content: center; }
   .inquiry-assistant { right: 14px; bottom: 78px; max-height: calc(100dvh - 94px); }
   .inquiry-assistant-body { max-height: calc(100dvh - 168px); }
-  .hero-carousel { height: 100vh; height: 100svh; min-height: 600px; }
-  #main > .hero-carousel:first-child { height: calc(100vh - 78px); height: calc(100svh - 78px); min-height: 522px; margin-top: 78px; }
+  .hero-carousel { height: auto; min-height: 0; aspect-ratio: 1085 / 1450; }
+  #main > .hero-carousel:first-child { height: auto; min-height: 0; margin-top: 78px; }
   .product-explorer, .section { scroll-margin-top: 78px; }
   .hero-slide img { object-position: center; }
   .hero-slide-shade { background: linear-gradient(0deg, rgba(4,5,7,.94) 0%, rgba(4,5,7,.56) 58%, rgba(4,5,7,.2) 100%); }
