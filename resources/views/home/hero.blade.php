@@ -28,7 +28,7 @@
             @endforeach
           </div>
         @endif
-        <a class="hero-carousel-scroll" href="#explore-products">Explore our products <span aria-hidden="true">↓</span></a>
+        {{-- <a class="hero-carousel-scroll" href="#explore-products">Explore our products <span aria-hidden="true">↓</span></a> --}}
       </section>
     @endif
 
