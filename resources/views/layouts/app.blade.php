@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Armour car accessories, multimedia packages, cameras, panels, and professional installation.">
   <title>@yield('title', 'Armour | Upgrade Your Drive')</title>
+  <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="64x64">
+  <link rel="icon" type="image/png" href="{{ asset('favicon-512.png') }}" sizes="512x512">
+  <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" sizes="180x180">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
