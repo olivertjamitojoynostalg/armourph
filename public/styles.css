@@ -126,6 +126,11 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
 .product-explorer-prev { left: -22px; }
 .product-explorer-next { right: -22px; }
 
+@media (min-width: 1021px) {
+  .product-explorer-carousel--four-items .product-explorer-card { flex-basis: calc((100% - 54px) / 4); }
+  .product-explorer-carousel--four-items .product-explorer-arrow { display: none; }
+}
+
 .section { padding: 112px 0; scroll-margin-top: 92px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 80px; margin-bottom: 48px; }
 .section-heading h2, .proof-copy h2, .store-layout h2 { margin-bottom: 0; font-size: clamp(2.9rem, 5vw, 4.6rem); }

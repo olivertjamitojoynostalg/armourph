@@ -8,7 +8,10 @@
             <a href="{{ route('products.index') }}">View all products <span aria-hidden="true">↗</span></a>
         </div>
 
-        <div class="product-explorer-carousel">
+        <div @class([
+            'product-explorer-carousel',
+            'product-explorer-carousel--four-items' => $productTypes->count() === 4,
+        ])>
             <button class="product-explorer-arrow product-explorer-prev" type="button" data-category-scroll="-1" aria-label="Previous product categories">‹</button>
             <div class="product-explorer-track" data-category-track>
                 @foreach ($productTypes as $productType)

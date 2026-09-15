@@ -133,6 +133,21 @@ class HomePageTest extends TestCase
                 && $packages->every(fn (Package $package) => $package->image_path !== null));
     }
 
+    public function test_home_balances_four_product_categories_on_desktop(): void
+    {
+        foreach (range(1, 4) as $number) {
+            $productType = ProductType::query()->create(['name' => "Category {$number}"]);
+            Product::factory()->create([
+                'product_type_id' => $productType->id,
+                'is_published' => true,
+            ]);
+        }
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('product-explorer-carousel--four-items', false);
+    }
+
     public function test_old_index_url_is_not_available(): void
     {
         $this->get('/index.html')->assertNotFound();
