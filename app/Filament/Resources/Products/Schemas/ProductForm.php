@@ -34,8 +34,12 @@ class ProductForm
                 Textarea::make('description')
                     ->rows(4)
                     ->columnSpanFull(),
-                TextInput::make('specification')
-                    ->maxLength(255),
+                Textarea::make('specification')
+                    ->label('Specifications')
+                    ->helperText('Enter one specification per line. Each line appears as a bullet on the product page.')
+                    ->rows(6)
+                    ->maxLength(255)
+                    ->columnSpanFull(),
                 TextInput::make('price')
                     ->numeric()
                     ->prefix('₱')

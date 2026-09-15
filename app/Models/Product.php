@@ -37,6 +37,21 @@ class Product extends Model
         return $this->price === null ? 'Price on inquiry' : '₱'.number_format((float) $this->price, fmod((float) $this->price, 1) == 0 ? 0 : 2);
     }
 
+    /**
+     * @return list<string>
+     */
+    public function getSpecificationItemsAttribute(): array
+    {
+        if (! $this->specification) {
+            return [];
+        }
+
+        return collect(preg_split('/\s*(?:·|\R)\s*/u', $this->specification) ?: [])
+            ->filter()
+            ->values()
+            ->all();
+    }
+
     public function getImageUrlAttribute(): ?string
     {
         if (! $this->image_path) {

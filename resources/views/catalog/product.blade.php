@@ -55,8 +55,12 @@
                 <div>
                     <p class="eyebrow">{{ $product->productType?->name }}</p>
                     <h1>{{ $product->name }}</h1>
-                    @if($product->specification)
-                        <p class="detail-spec">{{ $product->specification }}</p>
+                    @if($product->specification_items !== [])
+                        <ul class="detail-spec" aria-label="Product specifications">
+                            @foreach($product->specification_items as $specification)
+                                <li>{{ $specification }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                     @if($product->description)
                         <p class="detail-description">{{ $product->description }}</p>

@@ -478,3 +478,8 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
   .image-zoom-hint { font-size: 0; }
   .image-zoom-hint::after { content: 'Tap to zoom'; font-size: 11px; }
 }
+
+.detail-spec {
+  padding-left: 20px;
+  line-height: 1.8;
+}

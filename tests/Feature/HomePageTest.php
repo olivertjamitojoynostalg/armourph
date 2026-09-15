@@ -206,6 +206,22 @@ class HomePageTest extends TestCase
             ->assertDontSee('href="'.route('home').'#products"', false);
     }
 
+    public function test_product_detail_displays_specifications_as_a_bullet_list(): void
+    {
+        $product = Product::factory()->create([
+            'specification' => "9-inch QLED · 2GB RAM\n32GB storage",
+        ]);
+
+        $this->get(route('products.show', $product))
+            ->assertOk()
+            ->assertSee('aria-label="Product specifications"', false)
+            ->assertSeeInOrder([
+                '<li>9-inch QLED</li>',
+                '<li>2GB RAM</li>',
+                '<li>32GB storage</li>',
+            ], false);
+    }
+
     public function test_product_catalog_supports_search_and_sorting(): void
     {
         Product::factory()->create(['name' => 'Zulu Catalog Marker', 'price' => 100]);
