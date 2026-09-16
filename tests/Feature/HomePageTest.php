@@ -196,6 +196,19 @@ class HomePageTest extends TestCase
             ->assertDontSee('Show image 4 of 4');
     }
 
+    public function test_package_detail_includes_the_image_zoom_lens(): void
+    {
+        $package = Package::factory()->create([
+            'image_path' => 'catalog/package.jpg',
+            'is_published' => true,
+        ]);
+
+        $this->get(route('packages.show', $package))
+            ->assertOk()
+            ->assertSee('data-image-zoom', false)
+            ->assertSee('class="image-zoom-lens"', false);
+    }
+
     public function test_product_detail_links_back_to_the_product_catalog(): void
     {
         $product = Product::factory()->create(['is_published' => true]);
