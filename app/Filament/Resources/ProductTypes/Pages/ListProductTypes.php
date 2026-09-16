@@ -3,12 +3,8 @@
 namespace App\Filament\Resources\ProductTypes\Pages;
 
 use App\Filament\Resources\ProductTypes\ProductTypeResource;
-use App\Http\Controllers\Admin\CatalogSyncController;
-use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
-use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
-use Throwable;
 
 class ListProductTypes extends ListRecords
 {
@@ -17,6 +13,7 @@ class ListProductTypes extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            /*
             Action::make('sync')
                 ->label('Sync from AdvanceAutoPH')
                 ->icon('heroicon-o-arrow-path')
@@ -30,6 +27,7 @@ class ListProductTypes extends ListRecords
                         Notification::make()->danger()->title('Sync failed')->body('AdvanceAutoPH could not be reached. Please try again.')->send();
                     }
                 }),
+            */
             CreateAction::make(),
         ];
     }
