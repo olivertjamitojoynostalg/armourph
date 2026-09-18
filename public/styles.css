@@ -271,7 +271,10 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
 .simple-about { min-height: 760px; display: grid; align-items: center; padding: 160px 0 90px; background: radial-gradient(circle at 85% 30%, rgba(225,6,0,.14), transparent 28%), #08090b; }
 .simple-about-inner { max-width: 900px; margin-left: max(20px, calc((100vw - var(--container)) / 2)); margin-right: auto; }
 .simple-about h1 { margin-bottom: 30px; font-size: clamp(4rem, 7vw, 6.5rem); }
-.simple-about-copy { max-width: 760px; color: var(--soft); font-size: 1.18rem; line-height: 1.85; }
+.simple-about-copy { max-width: 760px; color: var(--soft); font-size: 1.18rem; line-height: 1.85; white-space: pre-line; }
+.simple-about-copy strong { color: white; font-weight: 700; }
+.simple-about-copy p, .simple-about-copy ul, .simple-about-copy ol { margin: 0 0 1em; }
+.simple-about-copy ul, .simple-about-copy ol { padding-left: 1.4em; }
 .simple-dealers { min-height: 760px; padding: 170px 0 110px; background: #f7f7f8; color: #17191e; }
 .simple-page-heading { margin-bottom: 54px; text-align: center; }
 .simple-page-heading .eyebrow { justify-content: center; color: #717680; }

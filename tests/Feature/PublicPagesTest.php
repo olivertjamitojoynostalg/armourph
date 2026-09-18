@@ -15,14 +15,15 @@ class PublicPagesTest extends TestCase
     {
         SiteSetting::query()->create(['key' => 'about', 'value' => [
             'heading' => 'A custom maintained heading',
-            'body' => 'Custom maintained about content.',
+            'body' => '<p>Custom <strong>maintained about</strong> content.</p><script>alert("unsafe")</script>',
         ]]);
 
         $this->get(route('about'))
             ->assertOk()
             ->assertViewIs('about')
             ->assertSee('A custom maintained heading')
-            ->assertSee('Custom maintained about content.')
+            ->assertSee('<p>Custom <strong>maintained about</strong> content.</p>', false)
+            ->assertDontSee('<script>alert("unsafe")</script>', false)
             ->assertDontSee('armour-hero-desktop-v1.jpg')
             ->assertSee('href="'.route('dealers').'"', false);
 

@@ -6,6 +6,7 @@ use App\Models\SiteSetting;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -78,10 +79,15 @@ class WebsiteSettings extends Page implements HasSchemas
                     ->required()
                     ->maxLength(180)
                     ->columnSpanFull(),
-                Textarea::make('about_body')
+                RichEditor::make('about_body')
                     ->label('About page content')
+                    ->helperText('Select text and use the toolbar to apply bold, italic, or lists.')
+                    ->toolbarButtons([
+                        ['bold', 'italic'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ])
                     ->required()
-                    ->rows(7)
                     ->maxLength(3000)
                     ->columnSpanFull(),
                 Repeater::make('stores')
