@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Filament\Pages\WebsiteSettings;
+use App\Filament\Resources\AuthorizedDealers\AuthorizedDealerResource;
 use App\Filament\Resources\Branches\BranchResource;
 use App\Filament\Resources\Branches\Pages\ListBranches;
 use App\Filament\Resources\HeroSlides\HeroSlideResource;
@@ -45,7 +46,7 @@ class MaintenanceTest extends TestCase
         $this->assertDatabaseCount('products', 5);
         $this->assertDatabaseCount('branches', 3);
         $this->assertDatabaseCount('hero_slides', 1);
-        $this->assertDatabaseCount('site_settings', 2);
+        $this->assertDatabaseCount('site_settings', 3);
         $this->assertDatabaseHas('packages', ['source_id' => 1, 'name' => 'Edited', 'price' => 6999]);
     }
 
@@ -76,6 +77,8 @@ class MaintenanceTest extends TestCase
             ProductTypeResource::getUrl('create'),
             BranchResource::getUrl(),
             BranchResource::getUrl('create'),
+            AuthorizedDealerResource::getUrl(),
+            AuthorizedDealerResource::getUrl('create'),
             HeroSlideResource::getUrl(),
             HeroSlideResource::getUrl('create'),
             HeroSlideResource::getUrl('edit', ['record' => HeroSlide::query()->firstOrFail()]),

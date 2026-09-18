@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Armour car accessories, multimedia packages, cameras, panels, and professional installation.">
+  <meta name="description" content="@yield('meta_description', 'Armour car accessories, multimedia packages, cameras, panels, and professional installation.')">
   <title>@yield('title', 'Armour | Upgrade Your Drive')</title>
   <link rel="icon" href="{{ asset('favicon.ico') }}?v={{ filemtime(public_path('favicon.ico')) }}" sizes="64x64">
   <link rel="icon" type="image/png" href="{{ asset('favicon-512.png') }}?v={{ filemtime(public_path('favicon-512.png')) }}" sizes="512x512">

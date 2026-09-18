@@ -2,6 +2,8 @@
   <url><loc>{{ route('home') }}</loc></url>
   <url><loc>{{ route('products.index') }}</loc></url>
   <url><loc>{{ route('packages.index') }}</loc></url>
+  <url><loc>{{ route('about') }}</loc></url>
+  <url><loc>{{ route('dealers') }}</loc></url>
 @foreach ($products as $product)
   <url>
     <loc>{{ route('products.show', $product) }}</loc>

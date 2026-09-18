@@ -207,6 +207,9 @@ const setInquiryOpen = (open) => {
 };
 
 inquiryLauncher?.addEventListener('click', () => setInquiryOpen(true));
+document.querySelectorAll('[data-open-inquiry]').forEach((button) => {
+  button.addEventListener('click', () => setInquiryOpen(true));
+});
 inquiryClose?.addEventListener('click', () => setInquiryOpen(false));
 
 document.addEventListener('keydown', (event) => {

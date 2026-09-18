@@ -23,7 +23,7 @@ class WebsiteSettings extends Page implements HasSchemas
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;
 
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 6;
 
     protected string $view = 'filament.pages.website-settings';
 
@@ -33,11 +33,17 @@ class WebsiteSettings extends Page implements HasSchemas
     public function mount(): void
     {
         $hero = SiteSetting::content('hero');
+        $about = SiteSetting::content('about');
         foreach (['image_path', 'mobile_image_path'] as $key) {
             $hero[$key] = Str::startsWith($hero[$key] ?? '', 'storage/') ? Str::after($hero[$key], 'storage/') : null;
         }
 
-        $this->form->fill([...$hero, 'stores' => SiteSetting::content('stores')]);
+        $this->form->fill([
+            ...$hero,
+            'about_heading' => $about['heading'] ?? 'Technology made for the road ahead.',
+            'about_body' => $about['body'] ?? 'Armour helps Filipino drivers build smarter, safer, and more enjoyable vehicles through dependable car technology, practical accessories, and professional installation.',
+            'stores' => SiteSetting::content('stores'),
+        ]);
     }
 
     public function form(Schema $schema): Schema
@@ -67,6 +73,17 @@ class WebsiteSettings extends Page implements HasSchemas
                 TextInput::make('image_alt')->label('Image description')->required()->maxLength(255)->columnSpanFull(),
                 TextInput::make('image_source')->label('Image source URL')->url()->maxLength(2000)->columnSpanFull(),
                 Toggle::make('is_sample_image')->label('Sample image'),
+                TextInput::make('about_heading')
+                    ->label('About page heading')
+                    ->required()
+                    ->maxLength(180)
+                    ->columnSpanFull(),
+                Textarea::make('about_body')
+                    ->label('About page content')
+                    ->required()
+                    ->rows(7)
+                    ->maxLength(3000)
+                    ->columnSpanFull(),
                 Repeater::make('stores')
                     ->label('Online stores')
                     ->schema([
@@ -95,6 +112,10 @@ class WebsiteSettings extends Page implements HasSchemas
         }
 
         SiteSetting::query()->updateOrCreate(['key' => 'hero'], ['value' => $hero]);
+        SiteSetting::query()->updateOrCreate(['key' => 'about'], ['value' => [
+            'heading' => $data['about_heading'],
+            'body' => $data['about_body'],
+        ]]);
         SiteSetting::query()->updateOrCreate(['key' => 'stores'], ['value' => $data['stores']]);
 
         Notification::make()->success()->title('Website settings saved')->send();

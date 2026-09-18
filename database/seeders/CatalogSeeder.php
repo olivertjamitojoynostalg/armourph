@@ -294,5 +294,9 @@ class CatalogSeeder extends Seeder
             ]);
         }
         SiteSetting::firstOrCreate(['key' => 'stores'], ['value' => config('armour.stores')]);
+        SiteSetting::firstOrCreate(['key' => 'about'], ['value' => [
+            'heading' => 'Technology made for the road ahead.',
+            'body' => 'Armour helps Filipino drivers build smarter, safer, and more enjoyable vehicles through dependable car technology, practical accessories, and professional installation. We focus on recommending the right equipment, installing it with care, and supporting every customer through a trusted local network.',
+        ]]);
     }
 }
