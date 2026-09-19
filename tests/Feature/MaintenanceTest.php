@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Filament\Pages\AboutPageSettings;
 use App\Filament\Pages\WebsiteSettings;
 use App\Filament\Resources\AuthorizedDealers\AuthorizedDealerResource;
 use App\Filament\Resources\Branches\BranchResource;
@@ -82,6 +83,7 @@ class MaintenanceTest extends TestCase
             HeroSlideResource::getUrl(),
             HeroSlideResource::getUrl('create'),
             HeroSlideResource::getUrl('edit', ['record' => HeroSlide::query()->firstOrFail()]),
+            AboutPageSettings::getUrl(),
             WebsiteSettings::getUrl(),
         ] as $url) {
             $this->get($url)->assertOk();

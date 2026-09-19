@@ -23,4 +23,21 @@
     </div>
   </div>
 </section>
+@if (count($about['review_images']))
+<section class="about-reviews">
+  <div class="container">
+    <div class="about-reviews-heading reveal">
+      <p class="eyebrow"><span></span> Customer feedback</p>
+      <h2>{{ $about['reviews_heading'] }}</h2>
+    </div>
+    <div class="about-review-grid">
+      @foreach ($about['review_images'] as $index => $reviewImage)
+        <figure class="about-review-card reveal">
+          <img src="{{ $reviewImage }}" alt="Customer feedback screenshot {{ $index + 1 }}" loading="lazy">
+        </figure>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
 @endsection

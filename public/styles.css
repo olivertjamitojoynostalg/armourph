@@ -275,6 +275,13 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
 .simple-about-copy strong { color: white; font-weight: 700; }
 .simple-about-copy p, .simple-about-copy ul, .simple-about-copy ol { margin: 0 0 1em; }
 .simple-about-copy ul, .simple-about-copy ol { padding-left: 1.4em; }
+.about-reviews { padding: 105px 0; background: #f7f7f8; color: #17191e; }
+.about-reviews-heading { margin-bottom: 42px; text-align: center; }
+.about-reviews-heading .eyebrow { justify-content: center; color: #717680; }
+.about-reviews-heading h2 { margin: 0; font-size: clamp(2.9rem, 5vw, 4.6rem); }
+.about-review-grid { columns: 3 280px; column-gap: 20px; }
+.about-review-card { margin: 0 0 20px; break-inside: avoid; overflow: hidden; border: 1px solid #dfe1e5; border-radius: 15px; background: white; box-shadow: 0 14px 34px rgba(12,14,18,.08); }
+.about-review-card img { width: 100%; height: auto; }
 .simple-dealers { min-height: 760px; padding: 170px 0 110px; background: #f7f7f8; color: #17191e; }
 .simple-page-heading { margin-bottom: 54px; text-align: center; }
 .simple-page-heading .eyebrow { justify-content: center; color: #717680; }
@@ -523,6 +530,10 @@ h1 em, h2 em { color: var(--red-hot); font-style: normal; }
   .simple-dealer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
   .simple-dealer-image img { padding: 16px; }
   .simple-dealer-card h2 { margin-top: 12px; font-size: 1.15rem; }
+  .about-reviews { padding: 72px 0; }
+  .about-reviews-heading { margin-bottom: 30px; text-align: left; }
+  .about-reviews-heading .eyebrow { justify-content: flex-start; }
+  .about-review-grid { columns: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

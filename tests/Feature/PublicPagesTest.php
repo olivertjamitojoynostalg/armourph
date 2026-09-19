@@ -16,6 +16,8 @@ class PublicPagesTest extends TestCase
         SiteSetting::query()->create(['key' => 'about', 'value' => [
             'heading' => 'A custom maintained heading',
             'body' => '<p>Custom <strong>maintained about</strong> content.</p><script>alert("unsafe")</script>',
+            'reviews_heading' => 'Real customer stories',
+            'review_images' => ['about-reviews/feedback-one.jpg', 'storage/about-reviews/feedback-two.png'],
         ]]);
 
         $this->get(route('about'))
@@ -24,6 +26,10 @@ class PublicPagesTest extends TestCase
             ->assertSee('A custom maintained heading')
             ->assertSee('<p>Custom <strong>maintained about</strong> content.</p>', false)
             ->assertDontSee('<script>alert("unsafe")</script>', false)
+            ->assertSee('Real customer stories')
+            ->assertSee('/storage/about-reviews/feedback-one.jpg', false)
+            ->assertSee('/storage/about-reviews/feedback-two.png', false)
+            ->assertSee('Customer feedback screenshot 2')
             ->assertDontSee('armour-hero-desktop-v1.jpg')
             ->assertSee('href="'.route('dealers').'"', false);
 
